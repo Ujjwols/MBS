@@ -2,12 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package controller;
 
 /**
  *
- * @author ASUS
+ * @author User
  */
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -15,14 +20,15 @@ import javax.swing.JOptionPane;
 import Model.*;
 import View.*;
 public class RegistrationController {
-    RegistrationModel model;
-    RegistrationView regview;
+    RegistrationModel Model;
+    RegistrationView View;
+    ResultSet rs;
     PreparedStatement pst=null;
-        public RegistrationController(RegistrationView regview)
+        public RegistrationController(RegistrationView view)
         {
-            this.regview=regview;
+            this.View=view;
             
-            regview.addLoginListner(new RegisetrListener());
+             view.addLoginListner(new RegisetrListener());
         }
         
         class RegisetrListener implements ActionListener
@@ -32,14 +38,14 @@ public class RegistrationController {
         public void actionPerformed(ActionEvent e) {
             try
             {
-                model=regview.getUser();
-                if(checkUser(model))
+                Model=View.getUser();
+                if(checkUser(Model))
                 {
-                    regview.setMessage("Registered Successfully");
+                    View.setMessage("Registered Successfully");
                 }
                 else
                 {
-                    regview.setMessage("Invalid registration");
+                    View.setMessage("Invalid registration");
                     
                 }
             }
@@ -53,7 +59,7 @@ public class RegistrationController {
         public boolean checkUser(RegistrationModel user) throws Exception {
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mvcprac", "root", "iphone53g@");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user_info", "root", "21013002zevils");
 
         
         String checkUsernameQuery = "SELECT * FROM users WHERE username = ?";
@@ -68,17 +74,22 @@ public class RegistrationController {
         
             if (user.getFirstname().isEmpty() || user.getLastname().isEmpty() ||
             user.getUsername().isEmpty() || user.getContactno().isEmpty() ||
-            user.getPassword().isEmpty()) {
+            user.getPassword().isEmpty() || user.getConfrimpassword().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields");
             return false;
         }
         try {
-            int Contactno= Integer.parseInt(user.getContactno());
+            int contactno = Integer.parseInt(user.getContactno());
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Contactno must be an integer");
             return false;
         }
 
+        
+        if (!user.getPassword().equals(user.getConfrimpassword())) {
+            JOptionPane.showMessageDialog(null, "Password and confirm password must match");
+            return false;
+        }
 
         
         String insertQuery = "INSERT INTO users(first_name, last_name, username, contact_no, password) VALUES (?, ?, ?, ?, ?)";
@@ -101,6 +112,10 @@ public class RegistrationController {
             pst.close();
         }
     }
-}        
-    }
+}
+
+    
+
+        
+        }
 }

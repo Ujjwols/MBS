@@ -22,7 +22,6 @@ public class LoginView extends javax.swing.JFrame {
      */
     public LoginView() {
         initComponents();
-        setExtendenState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -263,7 +262,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldusername;
     // End of variables declaration//GEN-END:variables
 
-    private void setExtendenState(int MAXIMIZED_BOTH) {
+    private void setExtendenState() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
