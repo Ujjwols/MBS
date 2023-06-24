@@ -9,31 +9,16 @@ package Model;
  * @author ASUS
  */
 public class RegistrationModel {
-    String username,password,firstname,lastname,contactno,confrimpassword;
-    public RegistrationModel(String username,String password,String firstname,String lastname,String contactno,String confrimpassword)
+    String firstname,lastname,username,contactno,password,confrimpassword;
+    public RegistrationModel(String firstname,String lastname,String username,String contactno,String password,String confrimpassword)
     {
-        this.username=username;
-        this.password=password;
+       
         this.firstname=firstname;
         this.lastname=lastname; 
+        this.username=username;
         this.contactno=contactno;
+        this.password=password;
         this.confrimpassword=confrimpassword;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getFirstname() {
@@ -52,6 +37,14 @@ public class RegistrationModel {
         this.lastname = lastname;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getContactno() {
         return contactno;
     }
@@ -59,11 +52,23 @@ public class RegistrationModel {
     public void setContactno(String contactno) {
         this.contactno = contactno;
     }
-    public String getConfrimpassword(){
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConfrimpassword() {
         return confrimpassword;
     }
-    public void setConfrimpassword(String confrimpassword){
-        this.confrimpassword=confrimpassword;
+
+    public void setConfrimpassword(String confrimpassword) {
+        this.confrimpassword = confrimpassword;
     }
+
+   
   
 }

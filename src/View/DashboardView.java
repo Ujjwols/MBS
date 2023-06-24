@@ -8,12 +8,12 @@ package View;
  *
  * @author hp
  */
-public class Dashboard extends javax.swing.JFrame {
+public class DashboardView extends javax.swing.JFrame {
 
     /**
      * Creates new form Dashboard
      */
-    public Dashboard() {
+    public DashboardView() {
         initComponents();
     }
 
@@ -50,7 +50,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(238, 238, 238));
         jButton7.setFont(new java.awt.Font("Leelawadee", 0, 20)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setText("DETAILS");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,22 +59,18 @@ public class Dashboard extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(238, 238, 238));
         jButton8.setFont(new java.awt.Font("Leelawadee", 0, 20)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(0, 0, 0));
         jButton8.setText("PACKAGES");
 
         jButton9.setBackground(new java.awt.Color(238, 238, 238));
         jButton9.setFont(new java.awt.Font("Leelawadee", 0, 20)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(0, 0, 0));
         jButton9.setText("DISCOVERIES");
 
         jButton10.setBackground(new java.awt.Color(238, 238, 238));
         jButton10.setFont(new java.awt.Font("Leelawadee", 0, 20)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(0, 0, 0));
         jButton10.setText("ABOUT US");
 
         jButton11.setBackground(new java.awt.Color(238, 238, 238));
         jButton11.setFont(new java.awt.Font("Leelawadee", 0, 20)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(0, 0, 0));
         jButton11.setText("DASHBOARD");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +80,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         jButton12.setBackground(new java.awt.Color(238, 238, 238));
         jButton12.setFont(new java.awt.Font("Leelawadee", 0, 20)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(0, 0, 0));
         jButton12.setText("PROFILE");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,23 +122,22 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 238));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/TrekVenture.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TrekVenture.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setText("Search");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/EBC.jpg"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("D:\\EBC.jpg")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/MBC.jpg"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("D:\\MBC.jpg")); // NOI18N
         jButton2.setText("jButton1");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/ABC.jpg"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("D:\\ABC.jpg")); // NOI18N
         jButton3.setText("jButton1");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +145,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/KBC.jpg"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("D:\\KBC.jpg")); // NOI18N
         jButton4.setText("jButton4");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +153,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/browse pkg.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\browse pkg.jpg")); // NOI18N
         jLabel2.setText("jLabel2");
 
         jLabel3.setText("Our Picks:");
@@ -206,10 +199,11 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(13, 13, 13)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -278,20 +272,21 @@ public class Dashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new DashboardView().setVisible(true);
             }
         });
     }

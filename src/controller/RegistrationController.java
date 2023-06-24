@@ -1,121 +1,104 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
-
-/**
- *
- * @author User
- */
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
-import javax.swing.JOptionPane;
-import Model.*;
-import View.*;
-public class RegistrationController {
-    RegistrationModel Model;
-    RegistrationView View;
-    ResultSet rs;
-    PreparedStatement pst=null;
-        public RegistrationController(RegistrationView view)
-        {
-            this.View=view;
-            
-             view.addLoginListner(new RegisetrListener());
-        }
-        
-        class RegisetrListener implements ActionListener
-    {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+import javax.swing.JOptionPane;
+
+import Model.RegistrationModel;
+import View.RegistrationView;
+
+public class RegistrationController {
+    private RegistrationModel model;
+    private RegistrationView view;
+
+    public RegistrationController(RegistrationView view) {
+        this.view = view;
+        view.addRegisterListner(new RegisterListener());
+    }
+
+    class RegisterListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            try
-            {
-                Model=View.getUser();
-                if(checkUser(Model))
-                {
-                    View.setMessage("Registered Successfully");
+            try {
+                model = view.getUser();
+                if (checkUser(model)) {
+                    view.setMessage("Registered Successfully");
+                } else {
+                    view.setMessage("Invalid registration");
                 }
-                else
-                {
-                    View.setMessage("Invalid registration");
-                    
-                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-            catch(Exception e1)
-            {
-                
-            }
-
         }
-       
+
         public boolean checkUser(RegistrationModel user) throws Exception {
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user_info", "root", "21013002zevils");
+            Connection conn = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
 
-        
-        String checkUsernameQuery = "SELECT * FROM users WHERE username = ?";
-        pst = conn.prepareStatement(checkUsernameQuery);
-        pst.setString(1, user.getUsername());
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            
-            JOptionPane.showMessageDialog(null, "Username is already taken");
-            return false;
-        }
-        
-            if (user.getFirstname().isEmpty() || user.getLastname().isEmpty() ||
-            user.getUsername().isEmpty() || user.getContactno().isEmpty() ||
-            user.getPassword().isEmpty() || user.getConfrimpassword().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please fill in all fields");
-            return false;
-        }
-        try {
-            int contactno = Integer.parseInt(user.getContactno());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Contactno must be an integer");
-            return false;
-        }
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user_info", "root",
+                        "21013002zevils");
 
-        
-        if (!user.getPassword().equals(user.getConfrimpassword())) {
-            JOptionPane.showMessageDialog(null, "Password and confirm password must match");
-            return false;
-        }
+                String checkUsername = "SELECT * FROM users WHERE username=?";
+                pst = conn.prepareStatement(checkUsername);
+                pst.setString(1, user.getUsername());
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Username has already been used");
+                    return false;
+                }
 
-        
-        String insertQuery = "INSERT INTO users(first_name, last_name, username, contact_no, password) VALUES (?, ?, ?, ?, ?)";
-        pst = conn.prepareStatement(insertQuery);
-        pst.setString(1, user.getFirstname());
-        pst.setString(2, user.getLastname());
-        pst.setString(3, user.getUsername());
-        pst.setString(4, user.getContactno());
-        pst.setString(5, user.getPassword());
+                if (user.getFirstname().isEmpty() || user.getLastname().isEmpty() || user.getUsername().isEmpty()
+                        || user.getContactno().isEmpty() || user.getPassword().isEmpty()
+                        || user.getConfrimpassword().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please fill in all fields");
+                    return false;
+                }
 
-        pst.executeUpdate();
-        System.out.println("Data inserted");
-        JOptionPane.showMessageDialog(null, "Data Registered Successfully");
-        return true;
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        throw e; // Rethrow the exception to be caught by the calling code
-    } finally {
-        if (pst != null) {
-            pst.close();
+                if (!user.getPassword().equals(user.getConfrimpassword())) {
+                    JOptionPane.showMessageDialog(null, "Password and confirm password must match");
+                    return false;
+                }
+
+                try {
+                    long contactno = Long.parseLong(user.getContactno());
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Contact must be a long integer");
+                    return false;
+                }
+
+                String insertQuery = "INSERT INTO users(first_name, last_name, username, contact_no, password) VALUES (?, ?, ?, ?, ?)";
+                pst = conn.prepareStatement(insertQuery);
+                pst.setString(1, user.getFirstname());
+                pst.setString(2, user.getLastname());
+                pst.setString(3, user.getUsername());
+                pst.setString(4, user.getContactno());
+                pst.setString(5, user.getPassword());
+
+                pst.executeUpdate();
+                System.out.println("Data inserted");
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw e;
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
         }
     }
-}
-
-    
-
-        
-        }
 }
