@@ -4,7 +4,7 @@
  */
 package View;
 import model.*;
-import java.swing.JOptionPane;
+import javax.swing.JOptionPane;
 import controller.*;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
