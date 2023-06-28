@@ -44,8 +44,8 @@ public class LoginController {
         }
        public boolean checkUser(LoginModel user) throws Exception{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gracedb","root","ishiki123");
-            String query="select * from registration where username='"+user.getUsername()+"' AND Passwd='"+user.getPassword()+"'";
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/led","root","merrychristmas");
+            String query="select * from user where username='"+user.getUsername()+"' AND Passwd='"+user.getPassword()+"'";
             try{
                 stmt=conn.createStatement();
                 rs=stmt.executeQuery(query);
