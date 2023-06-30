@@ -54,7 +54,7 @@ public class LoginView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Project\\MBS\\src\\View\\0f3d0f89ecb49b0e09de7b31cda82ca6.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\OneDrive\\Desktop\\LED-2\\MBS\\src\\View\\0f3d0f89ecb49b0e09de7b31cda82ca6.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
