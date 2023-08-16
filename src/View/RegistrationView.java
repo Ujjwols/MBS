@@ -71,8 +71,7 @@ public void addRegisterListner(ActionListener log)
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\OneDrive\\Desktop\\LED-2\\MBS\\src\\View\\reg.jpg")); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\Project MBS\\src\\View\\reg.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

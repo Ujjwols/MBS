@@ -44,7 +44,7 @@ public class RegistrationController {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user_info", "root",
-                        "21013002zevils");
+                        "aryan999@#");
 
                 String checkUsername = "SELECT * FROM users WHERE username=?";
                 pst = conn.prepareStatement(checkUsername);

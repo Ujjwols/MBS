@@ -54,8 +54,7 @@ public class LoginView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\OneDrive\\Desktop\\LED-2\\MBS\\src\\View\\0f3d0f89ecb49b0e09de7b31cda82ca6.jpg")); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\Project MBS\\src\\View\\0f3d0f89ecb49b0e09de7b31cda82ca6.jpg")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Moutannering Booking System");
@@ -81,8 +80,9 @@ public class LoginView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
@@ -93,6 +93,12 @@ public class LoginView extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Username");
+
+        textfieldusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfieldusernameActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Password");
@@ -195,6 +201,10 @@ public class LoginView extends javax.swing.JFrame {
         rv.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonsignupActionPerformed
+
+    private void textfieldusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldusernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldusernameActionPerformed
 
     public LoginModel getuser(){
         logMod= new LoginModel(textfieldusername.getText(), textfieldpassword.getText());
