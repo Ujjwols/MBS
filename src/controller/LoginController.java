@@ -37,7 +37,7 @@ public class LoginController {
                 logmod=logview.getuser();   
                 if(checkUser(logmod)){ 
                     logview.setMessage("login successfully");
-                    BookingView d=  new BookingView();
+                    DashboardView d=  new DashboardView();
                     d.show();
                     logview.dispose();
                 }
@@ -55,7 +55,7 @@ public class LoginController {
         }
          public boolean checkUser(LoginModel user) throws Exception{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/user_info","root","21013002zevils");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/user_info","root","aryan999@#");
             String query="select * from users where username='"+user.getUsername()+"' AND password='"+user.getPassword()+"'";
             try{
                 stmt=conn.createStatement();
